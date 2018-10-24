@@ -16,9 +16,9 @@ public class TestIterator {
 	private static final int NUM_NODES = 20000;
 	
 	public IDnaStrand getNewStrand(String s) {
-		return new StringStrand(s);
-		//return new LinkStrand(s);
-		//return new StringBuilderStrand(s);
+//		return new StringStrand(s);
+		return new LinkStrand(s);
+//		return new StringBuilderStrand(s);
 	}
 
 	
