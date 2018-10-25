@@ -107,8 +107,10 @@ public class LinkStrand implements IDnaStrand {
 			Node nFirst = current;
 			
 			while (current.next != null) {
-				ss = new StringBuilder(current.next.info);
-			    String sss = ss.reverse().toString();
+//				ss = new StringBuilder(current.next.info);
+//			    String sss = ss.reverse().toString();
+				
+				String sss = "count";
 				Node temp = new Node(sss);
 				temp.next = nFirst;		
 				nFirst = temp;
