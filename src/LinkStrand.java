@@ -54,11 +54,10 @@ public class LinkStrand implements IDnaStrand {
 			return myString.toString();
 		}
 		Node current = myFirst.next;
-		while (current != myLast) {
+		while (current != null) {
 			myString.append(current.info);
 			current = current.next;
 		}	
-		myString.append(myLast.info);
 		return myString.toString();
 	}
 
