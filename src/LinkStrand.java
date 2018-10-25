@@ -92,12 +92,12 @@ public class LinkStrand implements IDnaStrand {
 		StringBuilder ss;
 		
 		if (rev.mySize == rev.myFirst.info.length() || rev.mySize == rev.myLast.info.length()) {
-			if (rev.myFirst.info == "") {
-				ss = new StringBuilder(rev.myLast.info);
+			if (rev.myFirst.info.length()>rev.myLast.info.length()) {
+				ss = new StringBuilder(rev.myFirst.info);
 				ss.reverse();
 				rev = new LinkStrand(ss.toString());
-			} else if (rev.myLast.info == "") {
-				ss = new StringBuilder(rev.myFirst.info);
+			} else {
+				ss = new StringBuilder(rev.myLast.info);
 				ss.reverse();
 				rev = new LinkStrand(ss.toString());
 			}
