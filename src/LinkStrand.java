@@ -101,17 +101,14 @@ public class LinkStrand implements IDnaStrand {
 		Node current = rev.myFirst;
 		Node nFirst = current;
 		
-		while (current.next.next != null) {
+		while (current.next!= null) {
 			Node temp = new Node(current.next.info);
 			temp.next = nFirst;		
 			nFirst = temp;
 			current.next = current.next.next;
 		}
 		
-		current.next = null;
-		Node first = new Node(rev.myLast.info);
-		first.next = nFirst;
-		nFirst = first;
+		Node first = nFirst;
 		
 		while (first != null) {
 			ss = new StringBuilder(first.info);
