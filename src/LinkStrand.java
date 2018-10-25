@@ -85,6 +85,7 @@ public class LinkStrand implements IDnaStrand {
 		
 		LinkStrand rev = new LinkStrand(myFirst.info);
 		rev.myFirst = this.myFirst;
+		rev.myLast = this.myLast;
 		rev.myAppends = this.myAppends;
 		rev.mySize = this.mySize;
 		
