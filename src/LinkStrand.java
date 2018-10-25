@@ -96,14 +96,12 @@ public class LinkStrand implements IDnaStrand {
 				ss = new StringBuilder(rev.myLast.info);
 				ss.reverse();
 				rev = new LinkStrand(ss.toString());
-				return rev;
 			} else if (rev.myLast.info == "") {
 				ss = new StringBuilder(rev.myFirst.info);
 				ss.reverse();
 				rev = new LinkStrand(ss.toString());
-				return rev;
 			}
-
+			return rev;
 		} else {		
 			Node current = rev.myFirst;
 			Node nFirst = current;
