@@ -104,12 +104,16 @@ public class LinkStrand implements IDnaStrand {
 			return rev;
 		} else {		
 			Node current = rev.myFirst;
-			Node nFirst = current;
+			ss = new StringBuilder(current.info);
+			ss.reverse();
+			String sss = ss.toString();
+			Node first = new Node(sss);
+			first.next = current.next;
+			Node nFirst = first;
 			
 			while (current.next != null) {
-//				ss = new StringBuilder(current.next.info);
-				ss = new StringBuilder("count");	
-			    String sss = ss.reverse().toString();
+				ss = new StringBuilder(current.next.info);
+			    sss = ss.reverse().toString();
 			
 				Node temp = new Node(sss);
 				temp.next = nFirst;		
@@ -119,16 +123,7 @@ public class LinkStrand implements IDnaStrand {
 			
 			rev.myFirst = nFirst;
 			rev.myLast = current;
-
-//			LinkStrand rrev = new LinkStrand();
-//			Node lcurrent = rev.myFirst;	
-//			while (lcurrent != null) {
-//				ss = new StringBuilder(lcurrent.info);
-//				ss.reverse();
-//				String sss = ss.toString();
-//				rrev.append(sss);
-//				lcurrent = lcurrent.next;
-//			}			
+	
 			return rev;
 		}		
 	}
