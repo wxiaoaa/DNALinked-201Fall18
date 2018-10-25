@@ -83,17 +83,21 @@ public class LinkStrand implements IDnaStrand {
 	@Override
 	public IDnaStrand reverse() {
 		
-		LinkStrand rev = new LinkStrand();
+		LinkStrand rev = new LinkStrand(myFirst.info);
+		rev.myFirst = this.myFirst;
+		rev.myAppends = this.myAppends;
+		rev.mySize = this.mySize;
+		
 		StringBuilder ss;
 		
-		if (this.myAppends==0) {
-			ss = new StringBuilder(myFirst.info);
+		if (rev.myAppends==0) {
+			ss = new StringBuilder(rev.myFirst.info);
 			ss.reverse();
 			rev = new LinkStrand(ss.toString());
 			return rev;
 		}
 		
-		Node current = myFirst;
+		Node current = rev.myFirst;
 		Node nFirst = current;
 		
 		while (current.next.next != null) {
@@ -104,7 +108,7 @@ public class LinkStrand implements IDnaStrand {
 		}
 		
 		current.next = null;
-		Node first = new Node(myLast.info);
+		Node first = new Node(rev.myLast.info);
 		first.next = nFirst;
 		nFirst = first;
 		
@@ -115,10 +119,12 @@ public class LinkStrand implements IDnaStrand {
 			first = first.next;			
 		}
 		
+		ss = new StringBuilder(nFirst.info);
+		ss.reverse();
+		nFirst.info = ss.toString();
+		
 		rev.myFirst = nFirst;
 		rev.myLast = first;
-		rev.myAppends = this.myAppends;
-		rev.mySize = this.mySize;
 		
 		return rev;
 	}
