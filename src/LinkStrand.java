@@ -120,7 +120,7 @@ public class LinkStrand implements IDnaStrand {
 //				rrev.append(sss);
 //				lcurrent = lcurrent.next;
 //			}			
-			return rrev;
+			return rev;
 		}		
 	}
 
