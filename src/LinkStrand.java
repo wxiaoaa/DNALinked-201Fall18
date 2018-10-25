@@ -83,7 +83,7 @@ public class LinkStrand implements IDnaStrand {
 	@Override
 	public IDnaStrand reverse() {
 		
-		LinkStrand rev = new LinkStrand(myFirst.info);
+		LinkStrand rev = new LinkStrand();
 		rev.myFirst = this.myFirst;
 		rev.myLast = this.myLast;
 		rev.myAppends = this.myAppends;
@@ -91,7 +91,7 @@ public class LinkStrand implements IDnaStrand {
 		
 		StringBuilder ss;
 		
-		if (rev.myAppends==0) {
+		if (rev.myFirst.equals(rev.myLast)) {
 			ss = new StringBuilder(rev.myFirst.info);
 			ss.reverse();
 			rev = new LinkStrand(ss.toString());
