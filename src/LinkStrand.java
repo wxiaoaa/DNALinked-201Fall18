@@ -90,12 +90,13 @@ public class LinkStrand implements IDnaStrand {
 		
 		StringBuilder ss;
 		
-		if (rev.myFirst.equals(rev.myLast)) {
+		if (rev.myAppends == 0) {
 			ss = new StringBuilder(rev.myFirst.info);
 			ss.reverse();
 			rev = new LinkStrand(ss.toString());
 			return rev;
 		} else {
+			
 			Node current = rev.myFirst;
 			Node nFirst = current;
 			
@@ -106,23 +107,25 @@ public class LinkStrand implements IDnaStrand {
 				current.next = current.next.next;
 			}
 			
-			Node loo = nFirst;			
-			ss = new StringBuilder(nFirst.info);
-			ss.reverse();
-			Node temp = new Node(ss.toString());		
-			nFirst = temp;		
 			rev.myFirst = nFirst;
-			
-			while (loo.next != null) {
-				loo = loo.next;
-				ss = new StringBuilder(loo.info);
-				ss.reverse();
-				temp = new Node(ss.toString());
-				nFirst.next = temp;
-				nFirst = nFirst.next;
-			}			
-			rev.myLast = nFirst;
-			
+			rev.myLast = current;
+					
+//			ss = new StringBuilder(nFirst.info);
+//			ss.reverse();
+//			Node temp = new Node(ss.toString());		
+//			nFirst = temp;		
+//			rev.myFirst = nFirst;
+//			
+//			while (loo.next != null) {
+//				loo = loo.next;
+//				ss = new StringBuilder(loo.info);
+//				ss.reverse();
+//				temp = new Node(ss.toString());
+//				nFirst.next = temp;
+//				nFirst = nFirst.next;
+//			}			
+//			rev.myLast = nFirst;
+//			
 			return rev;
 		}		
 	}
